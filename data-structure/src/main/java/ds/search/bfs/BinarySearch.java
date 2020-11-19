@@ -1,4 +1,4 @@
-package ds.search.binary;
+package ds.search.bfs;
 
 public class BinarySearch {
 

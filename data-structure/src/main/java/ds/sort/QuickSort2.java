@@ -3,10 +3,10 @@ package ds.sort;
 public class QuickSort2 {
 
 	public static void main(String[] args) {
-		int[] arr = new int[] {11,10,15,1,6,4,13,2,1};
+		int[] arr = new int[] {11,10,15,1,6,4,13,2,8};
+//		int[] arr = new int[] {15,10,2,11,8};
 		quicksort(arr);
-		for(int i=0; i<arr.length; i++)
-			System.out.print(arr[i]+",");
+		print(arr, 0, arr.length);
 	}
 	
 	public static void quicksort(int[] arr) {
@@ -19,6 +19,11 @@ public class QuickSort2 {
 			quicksort(arr, start, index-1);
 			quicksort(arr, index, end);
 		}
+	}
+	
+	private static void print(int[] arr, int start, int end) {
+		for(; start<end; start++)
+			System.out.print(arr[start]+",");
 	}
 	
 	private static void swap(int[] arr, int i, int j) {
@@ -44,6 +49,30 @@ public class QuickSort2 {
 				end--;
 			}
 		}
+		
+		return start;
+	}
+	
+	public static int partition1(int[] arr, int start, int end) {
+		int mid = (start+end)/2;
+		int pivot = arr[mid];
+		while(start<end) {
+			while(arr[start]<pivot || start==mid) {
+				start++;
+			}
+			
+			while(arr[end]>pivot || end==mid) {
+				end--;
+			}
+		
+			if(start<end) {
+				swap(arr,start,end);
+				start++;
+				end--;
+			}
+		}
+		if(start<=end)
+			swap(arr,start,mid);
 		
 		return start;
 	}

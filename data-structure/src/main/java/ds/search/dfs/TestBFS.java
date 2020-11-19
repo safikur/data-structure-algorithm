@@ -1,4 +1,4 @@
-package ds.search.bfs;
+package ds.search.dfs;
 
 public class TestBFS {
 
